@@ -1,16 +1,35 @@
 <div class="container">
-  <form class="example-container">
-    <mat-form-field>
-      <input matInput placeholder="Input">
+  <h2 class="printer-name">Printer Name</h2>
+  <p class="printer-id">Id: 13</p>
+  <form class="edit-printer">
+    <mat-form-field class="edit-printer__input">
+      <input matInput placeholder="Name">
+    </mat-form-field>
+
+    <mat-form-field class="edit-printer__input">
+      <input matInput placeholder="Status">
+    </mat-form-field>
+
+    <mat-form-field class="edit-printer__input">
+      <input matInput placeholder="Network Address">
     </mat-form-field>
   
-    <mat-form-field>
-      <textarea matInput placeholder="Textarea"></textarea>
+    <mat-form-field class="edit-printer__input">
+      <textarea matInput placeholder="Description"></textarea>
     </mat-form-field>
-  
+
+    <mat-form-field class="edit-printer__input">
+      <input matInput placeholder="Colour">
+    </mat-form-field>
+
+    <mat-form-field class="edit-printer__input">
+      <input matInput placeholder="Year">
+    </mat-form-field>
+
     <mat-form-field>
-      <mat-select placeholder="Select">
-        <mat-option value="option">Option</mat-option>
+      <mat-select placeholder="Status">
+        <mat-option value="active">Active</mat-option>
+        <mat-option value="inactive">Inactive</mat-option>
       </mat-select>
     </mat-form-field>
   

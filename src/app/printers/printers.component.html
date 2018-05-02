@@ -1,31 +1,54 @@
 <div class="container">
-  <mat-table [dataSource]="dataSource" class="printers-table mat-elevation-z8">
+  <mat-table [dataSource]="printers" class="printers-table mat-elevation-z8">
 
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
-
-    <!-- Position Column -->
-    <ng-container matColumnDef="position">
-      <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef>No. </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
     </ng-container>
 
-    <!-- Name Column -->
     <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef>Name </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
     </ng-container>
 
-    <!-- Weight Column -->
-    <ng-container matColumnDef="weight">
-      <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef>Status </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
     </ng-container>
 
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="symbol">
-      <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef>Description </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="network address">
+      <mat-header-cell *matHeaderCellDef>Network Address </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.networkAddress}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="colour">
+      <mat-header-cell *matHeaderCellDef>Colour </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.colour}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="year">
+      <mat-header-cell *matHeaderCellDef>Year </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.year}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="report link">
+      <mat-header-cell *matHeaderCellDef>Printer Report </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <a href="{{element.reportLink}}" download><i class="material-icons">file_download</i></a>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>Actions </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <a href="{{element.reportLink}}"><i class="material-icons">mode_edit</i></a>
+        <a href="{{element.reportLink}}"><i class="material-icons">delete_forever</i></a>
+      </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

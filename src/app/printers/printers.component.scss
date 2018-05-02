@@ -5,3 +5,18 @@
   overflow: auto;
   max-height: 500px;
 }
+
+.mat-row {
+  transition: all .2s ease-in-out;
+  &:hover {
+    background: #efefef;
+  }
+}
+
+.mat-column-id {
+  flex: .4;
+}
+
+.mat-column-network-address {
+  flex: 1.3;
+}

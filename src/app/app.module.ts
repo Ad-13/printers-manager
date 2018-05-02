@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule }    from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { PrintersComponent } from './printers/printers.component';
 import { EditPrinterComponent } from './edit-printer/edit-printer.component';
+import { PrinterService } from './services/printer.service';
 
 
 @NgModule({
@@ -23,10 +25,11 @@ import { EditPrinterComponent } from './edit-printer/edit-printer.component';
   imports: [
     BrowserModule,
     MaterialModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [PrinterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

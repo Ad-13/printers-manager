@@ -1,8 +1,8 @@
-.example-container {
+.edit-printer {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
 }
 
-.example-container > * {
+.edit-printer__input {
     width: 100%;
 }
