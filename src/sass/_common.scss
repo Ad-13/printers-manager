@@ -1,0 +1,32 @@
+/* **************** COMMON ****************** */
+.clearfix:before,
+.clearfix:after {
+	content: " ";
+	display: block;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+body {
+	background: #eee;
+	color: #000;
+	// display: flex;
+	// min-height: 100vh;
+	// flex-direction: column;
+}
+
+// main {
+// 	flex: 1 0 auto;
+// }
+
+// html,
+// body {
+// 	height: 100%;
+// }
+
+.img {
+	max-width: 100%;
+	height: auto;
+}
