@@ -17,6 +17,11 @@ body {
 	// flex-direction: column;
 }
 
+.container {
+	max-width: 1054px;
+	padding: 0 15px;
+}
+
 // main {
 // 	flex: 1 0 auto;
 // }
@@ -29,4 +34,10 @@ body {
 .img {
 	max-width: 100%;
 	height: auto;
+}
+
+.nav-link {
+    .mat-button-focus-overlay {
+        display: none;
+    }
 }

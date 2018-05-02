@@ -1,0 +1,16 @@
+.header {
+    justify-content: space-between;
+}
+.nav-link {
+    background: #6379ef;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+        background: #798cf4;
+        text-decoration: none;
+    }
+
+    .mat-button-focus-overlay {
+        display: none;
+    }
+}
