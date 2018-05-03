@@ -1,39 +1,37 @@
 <div class="container">
   <h2 class="printer-name">Printer Name</h2>
   <p class="printer-id">Id: 13</p>
-  <form class="edit-printer">
+  <form (ngSubmit)="onSubmit()" class="printer-form">
     <mat-form-field class="edit-printer__input">
-      <input matInput placeholder="Name">
+      <input matInput placeholder="Name" [(ngModel)]="printer.name" name="name">
     </mat-form-field>
-
-    <mat-form-field class="edit-printer__input">
-      <input matInput placeholder="Status">
-    </mat-form-field>
-
-    <mat-form-field class="edit-printer__input">
-      <input matInput placeholder="Network Address">
-    </mat-form-field>
-  
-    <mat-form-field class="edit-printer__input">
-      <textarea matInput placeholder="Description"></textarea>
-    </mat-form-field>
-
-    <mat-form-field class="edit-printer__input">
-      <input matInput placeholder="Colour">
-    </mat-form-field>
-
-    <mat-form-field class="edit-printer__input">
-      <input matInput placeholder="Year">
-    </mat-form-field>
-
+{{printer.name}}
     <mat-form-field>
-      <mat-select placeholder="Status">
+      <mat-select placeholder="Status" [(ngModel)]="printer.status" name="status">
         <mat-option value="active">Active</mat-option>
         <mat-option value="inactive">Inactive</mat-option>
       </mat-select>
     </mat-form-field>
+
+    <mat-form-field class="edit-printer__input">
+      <input matInput placeholder="Network Address" [(ngModel)]="printer.networkAddress" name="networkAddress">
+    </mat-form-field>
   
-    <button mat-button>Save!</button>
+    <mat-form-field class="edit-printer__input">
+      <textarea matInput placeholder="Description" [(ngModel)]="printer.description" name="description"></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="edit-printer__input">
+      <input matInput placeholder="Colour" [(ngModel)]="printer.colour" name="colour">
+    </mat-form-field>
+
+    <mat-form-field class="edit-printer__input">
+      <input matInput placeholder="Year" [(ngModel)]="printer.year" name="year">
+    </mat-form-field>
+
+    <div class="printer-form__btns">
+      <button mat-button type="submit">Save!</button>
+    </div>
   </form>
 </div>
 

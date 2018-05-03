@@ -1,10 +1,10 @@
-export interface Printer {
-  id: number;
-  name: string;
-  status: string;
-  networkAddress: string;
-  description: string,
-  colour: string;
-  year: number;
-  reportLink: string;
+export class Printer {
+  id?: number = null;
+  name: string = null;
+  status: string = null;
+  networkAddress: string = null;
+  description: string = null;
+  colour: string = null;
+  year: number = null;
+  reportLink: string = null;
 }
