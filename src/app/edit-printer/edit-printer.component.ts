@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 import { PrinterService } from '../services/printer.service';
 
@@ -11,24 +13,50 @@ import { Printer } from '../interfaces/printer';
 })
 export class EditPrinterComponent implements OnInit {
 
+  @Input()
   printer: Printer = new Printer();
 
-  constructor(private printerService: PrinterService) { }
+  constructor(
+    private printerService: PrinterService,
+    private route: ActivatedRoute,
+    private location: Location
+  ) {}
 
   ngOnInit() {
+    this.getPrinter();
   }
 
   onSubmit() {
-    this.addPrinter(this.printer);
+    if ( this.printer.id ) {
+      this.updatePrinter();
+    } else {
+      this.addPrinter(this.printer);
+    }
+  }
+
+  getPrinter(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    if ( id ) {
+      this.printerService.getPrinter(id)
+        .subscribe(printer => this.printer = printer);
+    }
   }
 
   addPrinter(printer: Printer) {
-    console.log(printer);
-    // if (!name) { return; }
+    if (!printer) { return; }
     this.printerService.addPrinter(printer)
-      .subscribe(printer => {
-        this.printer = printer;
+    .subscribe(() => {
+        this.printer = new Printer();
       });
+  }
+
+  updatePrinter(): void {
+    this.printerService.updatePrinter(this.printer)
+      .subscribe(() => this.goBack());
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }

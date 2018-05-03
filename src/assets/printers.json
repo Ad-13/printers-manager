@@ -12,7 +12,7 @@
     },
     {
       "id": 2,
-      "name": "Philips",
+      "name": "Philipsaaaaaaaaaaaaa",
       "status": "inactive",
       "networkAddress": "networkAddress",
       "description": "description",
@@ -32,13 +32,43 @@
     },
     {
       "id": 4,
-      "name": "Apple",
+      "name": "Appleaaaaaaaaaaaaaaa",
       "status": "inactive",
       "networkAddress": "networkAddress",
       "description": "description",
       "colour": "red",
       "year": 2000,
       "reportLink": "report src"
+    },
+    {
+      "id": 5,
+      "name": "aaaaaaaaaaa",
+      "status": null,
+      "networkAddress": null,
+      "description": null,
+      "colour": null,
+      "year": null,
+      "reportLink": null
+    },
+    {
+      "id": 6,
+      "name": "sssssssssssss",
+      "status": null,
+      "networkAddress": null,
+      "description": null,
+      "colour": null,
+      "year": null,
+      "reportLink": null
+    },
+    {
+      "id": 7,
+      "name": "dbdb",
+      "status": "inactive",
+      "networkAddress": null,
+      "description": null,
+      "colour": "cxbvbn",
+      "year": null,
+      "reportLink": null
     }
   ]
 }

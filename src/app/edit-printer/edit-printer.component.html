@@ -1,11 +1,11 @@
 <div class="container">
   <h2 class="printer-name">Printer Name</h2>
-  <p class="printer-id">Id: 13</p>
-  <form (ngSubmit)="onSubmit()" class="printer-form">
+  <p *ngIf="printer.id"  class="printer-id">Id: {{printer.id}}</p>
+  <form (ngSubmit)="onSubmit(); printerForm.reset()" class="printer-form" #printerForm="ngForm">
     <mat-form-field class="edit-printer__input">
       <input matInput placeholder="Name" [(ngModel)]="printer.name" name="name">
     </mat-form-field>
-{{printer.name}}
+
     <mat-form-field>
       <mat-select placeholder="Status" [(ngModel)]="printer.status" name="status">
         <mat-option value="active">Active</mat-option>

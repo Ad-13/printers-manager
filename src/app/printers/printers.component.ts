@@ -34,4 +34,9 @@ export class PrintersComponent implements OnInit {
     .subscribe(printers => this.printers = printers);
   }
 
+  deletePrinter(printerToDelete: Printer): void {
+    this.printers = this.printers.filter(printer => printer !== printerToDelete);
+    this.printerService.deletePrinter(printerToDelete).subscribe();
+  }
+
 }

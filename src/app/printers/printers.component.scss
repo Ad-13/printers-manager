@@ -20,3 +20,23 @@
 .mat-column-network-address {
   flex: 1.3;
 }
+
+.action-btn {
+  background: transparent;
+  border-radius: 50%;
+  color: #1a62bf;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .2s ease-in-out;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  &:hover {
+    background: #f7f7f7;
+    text-decoration: none;
+  }
+  &:active {
+    color: #f00;
+  }
+}

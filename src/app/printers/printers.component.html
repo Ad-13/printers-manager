@@ -3,51 +3,60 @@
 
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef>No. </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+      <mat-cell *matCellDef="let printer"> {{printer.id}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef>Name </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      <mat-cell *matCellDef="let printer"> {{printer.name}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="status">
       <mat-header-cell *matHeaderCellDef>Status </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
+      <mat-cell *matCellDef="let printer"> {{printer.status}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="description">
       <mat-header-cell *matHeaderCellDef>Description </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+      <mat-cell *matCellDef="let printer"> {{printer.description}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="network address">
       <mat-header-cell *matHeaderCellDef>Network Address </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.networkAddress}} </mat-cell>
+      <mat-cell *matCellDef="let printer"> {{printer.networkAddress}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="colour">
       <mat-header-cell *matHeaderCellDef>Colour </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.colour}} </mat-cell>
+      <mat-cell *matCellDef="let printer"> {{printer.colour}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="year">
       <mat-header-cell *matHeaderCellDef>Year </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.year}} </mat-cell>
+      <mat-cell *matCellDef="let printer"> {{printer.year}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="report link">
       <mat-header-cell *matHeaderCellDef>Printer Report </mat-header-cell>
-      <mat-cell *matCellDef="let element">
-        <a href="{{element.reportLink}}" download><i class="material-icons">file_download</i></a>
+      <mat-cell *matCellDef="let printer">
+        <a *ngIf="printer.reportLink" 
+            href="{{printer.reportLink}}"
+            class="action-btn"
+            download>
+            <i class="material-icons">file_download</i>
+        </a>
       </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="actions">
       <mat-header-cell *matHeaderCellDef>Actions </mat-header-cell>
-      <mat-cell *matCellDef="let element">
-        <a href="{{element.reportLink}}"><i class="material-icons">mode_edit</i></a>
-        <a href="{{element.reportLink}}"><i class="material-icons">delete_forever</i></a>
+      <mat-cell *matCellDef="let printer">
+        <a href="{{printer.reportLink}}"
+           routerLink="/edit-printer/{{printer.id}}" 
+           class="action-btn">
+            <i class="material-icons">mode_edit</i>
+        </a>
+        <span (click)="deletePrinter(printer)" class="action-btn"><i class="material-icons">delete_forever</i></span>
       </mat-cell>
     </ng-container>
 

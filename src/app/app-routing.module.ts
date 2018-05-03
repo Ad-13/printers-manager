@@ -7,6 +7,7 @@ import { EditPrinterComponent } from './edit-printer/edit-printer.component';
 const routes: Routes = [
   { path: '', redirectTo: '/printers', pathMatch: 'full' },
   { path: 'printers', component: PrintersComponent },
+  { path: 'edit-printer/:id', component: EditPrinterComponent },
   { path: 'edit-printer', component: EditPrinterComponent }
 ];
 
