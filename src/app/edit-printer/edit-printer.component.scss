@@ -6,3 +6,24 @@
 .edit-printer__input {
     width: 100%;
 }
+
+.alert {
+    color: #f00;
+}
+
+.printer-name {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.printer-id {
+  font-size: 25px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.printer-form__submit {
+    background: #1c9cf7;
+    color: #fff;
+}

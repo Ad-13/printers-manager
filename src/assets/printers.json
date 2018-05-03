@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Canyon",
       "status": "active",
-      "networkAddress": "networkAddress",
+      "networkAddress": "1.2.3.4",
       "description": "description",
       "colour": "black",
       "year": 2000,
@@ -12,63 +12,33 @@
     },
     {
       "id": 2,
-      "name": "Philipsaaaaaaaaaaaaa",
+      "name": "Philips",
       "status": "inactive",
-      "networkAddress": "networkAddress",
+      "networkAddress": "1.2.3.45",
       "description": "description",
       "colour": "green",
       "year": 2000,
-      "reportLink": "report src"
+      "reportLink": "./assets/report.txt"
     },
     {
       "id": 3,
       "name": "Samsung",
       "status": "active",
-      "networkAddress": "networkAddress",
+      "networkAddress": "1.2.3.46",
       "description": "description",
       "colour": "yellow",
       "year": 2000,
-      "reportLink": "report src"
+      "reportLink": "./assets/report.txt"
     },
     {
       "id": 4,
-      "name": "Appleaaaaaaaaaaaaaaa",
+      "name": "Apple",
       "status": "inactive",
-      "networkAddress": "networkAddress",
+      "networkAddress": "1.2.3.47",
       "description": "description",
       "colour": "red",
       "year": 2000,
-      "reportLink": "report src"
-    },
-    {
-      "id": 5,
-      "name": "aaaaaaaaaaa",
-      "status": null,
-      "networkAddress": null,
-      "description": null,
-      "colour": null,
-      "year": null,
-      "reportLink": null
-    },
-    {
-      "id": 6,
-      "name": "sssssssssssss",
-      "status": null,
-      "networkAddress": null,
-      "description": null,
-      "colour": null,
-      "year": null,
-      "reportLink": null
-    },
-    {
-      "id": 7,
-      "name": "dbdb",
-      "status": "inactive",
-      "networkAddress": null,
-      "description": null,
-      "colour": "cxbvbn",
-      "year": null,
-      "reportLink": null
+      "reportLink": "./assets/report.txt"
     }
   ]
 }

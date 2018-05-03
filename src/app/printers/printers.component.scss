@@ -17,8 +17,22 @@
   flex: .4;
 }
 
-.mat-column-network-address {
-  flex: 1.3;
+.mat-column-description {
+  flex: 1.4;
+}
+
+.mat-column-network-address,
+.mat-column-status,
+.mat-column-year {
+  flex: 0.8;
+}
+
+.mat-column-report-link {
+  flex: 0.7;
+}
+
+.mat-column-report-actions {
+  flex: 0.9;
 }
 
 .action-btn {

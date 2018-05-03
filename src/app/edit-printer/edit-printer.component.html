@@ -1,36 +1,85 @@
 <div class="container">
-  <h2 class="printer-name">Printer Name</h2>
+  <h2 class="printer-name">{{printer.name}}</h2>
   <p *ngIf="printer.id"  class="printer-id">Id: {{printer.id}}</p>
-  <form (ngSubmit)="onSubmit(); printerForm.reset()" class="printer-form" #printerForm="ngForm">
+  <form (ngSubmit)="onSubmit();" 
+        class="printer-form" 
+        [formGroup]="printerForm">
     <mat-form-field class="edit-printer__input">
-      <input matInput placeholder="Name" [(ngModel)]="printer.name" name="name">
+      <input matInput 
+             placeholder="Name" 
+             formControlName="name">
     </mat-form-field>
+    <div *ngIf="printerForm.controls.name.invalid && (printerForm.controls.name.dirty || printerForm.controls.name.touched)"
+          class="alert alert-danger">
+      <div *ngIf="printerForm.controls.name.errors.required">
+        Name is required.
+      </div>
+      <div *ngIf="printerForm.controls.name.errors.minlength">
+        Name must be at least 4 characters long.
+      </div>
+    </div>
 
     <mat-form-field>
-      <mat-select placeholder="Status" [(ngModel)]="printer.status" name="status">
+      <mat-select placeholder="Status" formControlName="status">
         <mat-option value="active">Active</mat-option>
         <mat-option value="inactive">Inactive</mat-option>
       </mat-select>
     </mat-form-field>
+    <div *ngIf="printerForm.controls.status.invalid && (printerForm.controls.status.dirty || printerForm.controls.status.touched)"
+          class="alert alert-danger">
+      <div *ngIf="printerForm.controls.status.errors.required">
+          Status is required.
+      </div>
+    </div>
 
     <mat-form-field class="edit-printer__input">
-      <input matInput placeholder="Network Address" [(ngModel)]="printer.networkAddress" name="networkAddress">
+      <input matInput placeholder="Network Address" formControlName="networkAddress">
     </mat-form-field>
+    <div *ngIf="printerForm.controls.networkAddress.invalid && (printerForm.controls.networkAddress.dirty || printerForm.controls.networkAddress.touched)"
+          class="alert alert-danger">
+      <div *ngIf="printerForm.controls.networkAddress.errors.required">
+          Network Address is required.
+      </div>
+      <div *ngIf="printerForm.controls.networkAddress.errors.validIP">
+          Network Address is incorrect.
+      </div>
+    </div>
   
     <mat-form-field class="edit-printer__input">
-      <textarea matInput placeholder="Description" [(ngModel)]="printer.description" name="description"></textarea>
+      <textarea matInput placeholder="Description" formControlName="description"></textarea>
     </mat-form-field>
+    <div *ngIf="printerForm.controls.description.invalid && (printerForm.controls.description.dirty || printerForm.controls.description.touched)"
+          class="alert alert-danger">
+      <div *ngIf="printerForm.controls.description.errors.required">
+          Description is required.
+      </div>
+    </div>
 
     <mat-form-field class="edit-printer__input">
-      <input matInput placeholder="Colour" [(ngModel)]="printer.colour" name="colour">
+      <input matInput placeholder="Colour" formControlName="colour">
     </mat-form-field>
+    <div *ngIf="printerForm.controls.colour.invalid && (printerForm.controls.colour.dirty || printerForm.controls.colour.touched)"
+          class="alert alert-danger">
+      <div *ngIf="printerForm.controls.colour.errors.required">
+          Colour is required.
+      </div>
+    </div>
 
     <mat-form-field class="edit-printer__input">
-      <input matInput placeholder="Year" [(ngModel)]="printer.year" name="year">
+      <input matInput placeholder="Year" formControlName="year">
     </mat-form-field>
+    <div *ngIf="printerForm.controls.year.invalid && (printerForm.controls.year.dirty || printerForm.controls.year.touched)"
+          class="alert alert-danger">
+      <div *ngIf="printerForm.controls.year.errors.required">
+          Year is required.
+      </div>
+      <div *ngIf="printerForm.controls.year.errors.onlyNumbers">
+        Only number can be set.
+      </div>
+    </div>
 
     <div class="printer-form__btns">
-      <button mat-button type="submit">Save!</button>
+      <button mat-button type="submit" [disabled]="!printerForm.valid" class="printer-form__submit">Save!</button>
     </div>
   </form>
 </div>
