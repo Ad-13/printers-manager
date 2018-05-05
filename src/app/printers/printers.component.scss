@@ -4,6 +4,7 @@
   min-width: 300px;
   overflow: auto;
   max-height: 500px;
+  min-width: 717px;
 }
 
 .mat-row {
@@ -50,8 +51,9 @@
     background: #f7f7f7;
     text-decoration: none;
   }
-  &:active {
-    color: #f00;
+
+  &--delete {
+    color: #d74c4c;
   }
 }
 

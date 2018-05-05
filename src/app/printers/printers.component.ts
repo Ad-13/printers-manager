@@ -37,7 +37,6 @@ export class PrintersComponent implements OnInit {
   ngOnInit() {
     this.subscription = this.printerService.subscribeNewPrinterObserver().subscribe((printerName: string) => {
       this.getPrinters(printerName);
-      console.log('FilmListComponent getFilms');
     });
     this.getPrinters();
   }
