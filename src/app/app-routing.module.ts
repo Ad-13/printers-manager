@@ -8,7 +8,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/printers', pathMatch: 'full' },
   { path: 'printers', component: PrintersComponent },
   { path: 'edit-printer/:id', component: EditPrinterComponent },
-  { path: 'edit-printer', component: EditPrinterComponent }
+  { path: 'edit-printer', component: EditPrinterComponent },
+  { path: "**", redirectTo: '/printers', pathMatch: 'full' }
 ];
 
 @NgModule({
