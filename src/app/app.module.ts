@@ -14,6 +14,7 @@ import { PrintersComponent } from './printers/printers.component';
 import { EditPrinterComponent } from './edit-printer/edit-printer.component';
 
 import { PrinterService } from './services/printer.service';
+import { PrinterSearchComponent } from './printer-search/printer-search.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { PrinterService } from './services/printer.service';
     HeaderComponent,
     FooterComponent,
     PrintersComponent,
-    EditPrinterComponent
+    EditPrinterComponent,
+    PrinterSearchComponent
   ],
   imports: [
     BrowserModule,

@@ -1,13 +1,14 @@
 <div class="container">
-  <mat-table [dataSource]="printers" class="printers-table mat-elevation-z8">
+  <app-printer-search></app-printer-search>
+  <mat-table #printersTable [dataSource]="printers" class="printers-table mat-elevation-z8">
 
     <ng-container matColumnDef="id">
-      <mat-header-cell *matHeaderCellDef>No. </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef (click)="sortByProp($event, 'id')">No. </mat-header-cell>
       <mat-cell *matCellDef="let printer"> {{printer.id}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef>Name </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef (click)="sortByProp($event, 'name')">Name </mat-header-cell>
       <mat-cell *matCellDef="let printer"> {{printer.name}} </mat-cell>
     </ng-container>
 

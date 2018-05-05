@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { catchError, map, tap } from 'rxjs/operators';
+import { of } from 'rxjs/observable/of';
+import { Subject } from 'rxjs/Subject';
 
 import { Printer } from '../interfaces/printer';
 
@@ -10,20 +12,30 @@ import { HTTP_OPTIONS } from '../constants/constants';
 
 import {
 	handleError
-} from '../utils/utils'
+} from '../utils/utils';
  
 @Injectable()
 export class PrinterService {
+  newPrinterObserver = new Subject<string>();
 
   constructor(private http: HttpClient) { }
 
-  getPrinters(): Observable<Printer[]> {
-    return this.http.get<Printer[]>(MOCK_URL).pipe(
+  public emitNewPrinterObserver(searchText: string): void {
+    this.newPrinterObserver.next(searchText);
+  }
+
+  public subscribeNewPrinterObserver(): Observable<string> {
+    return this.newPrinterObserver.asObservable();
+  }
+
+  getPrinters(query?: any): Observable<Printer[]> {
+    const url = `${MOCK_URL}/${query ? '?q=' + query : ''}`;
+    return this.http.get<Printer[]>(url).pipe(
       catchError(handleError<Printer[]>('getPrinters', []))
     );
   }
 
-  getPrinter(id: number): Observable<Printer> {
+  getPrinterById(id: number): Observable<Printer> {
     const url = `${MOCK_URL}/${id}`;
     return this.http.get<Printer>(url).pipe(
       catchError(handleError<Printer>(`getPrinter id=${id}`))
@@ -49,6 +61,15 @@ export class PrinterService {
     const url = `${MOCK_URL}/${printer.id}`;
     return this.http.put(url, printer, HTTP_OPTIONS).pipe(
       catchError(handleError<any>('updatePrinter'))
+    );
+  }
+
+  searchPrinters(term: string): Observable<Printer[]> {
+    if (!term.trim()) {
+      return of([]);
+    }
+    return this.http.get<Printer[]>(`${MOCK_URL}/?name=${term}`).pipe(
+      catchError(handleError<Printer[]>('searchPrinters', []))
     );
   }
 }

@@ -1,0 +1,11 @@
+<div id="search-component">
+  <form class="printer-search">
+    <mat-form-field class="printer-search-inputs">
+      <input matInput 
+          placeholder="Search Printer"
+          class="input"
+          #printerName
+          (input)="getPrinters(printerName.value)">
+    </mat-form-field>
+  </form>
+</div>

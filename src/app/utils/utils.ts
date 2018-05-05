@@ -16,6 +16,16 @@ export function onlyNumbers(control: AbstractControl): ValidationErrors | null {
     return forbidden ? {'onlyNumbers': true} : null;
 }
 
+export function simpleCompare(propName: string, obj1, obj2) {
+  if (obj1[propName] < obj2[propName]) {
+    return -1;
+  }
+  if (obj1[propName] > obj2[propName]) {
+    return 1;
+  }
+  return 0;
+}
+
 export function validIP(control: AbstractControl): ValidationErrors | null {
   if ( !control.value ) {
     return null;

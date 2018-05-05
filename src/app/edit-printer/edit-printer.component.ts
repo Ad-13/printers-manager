@@ -58,6 +58,9 @@ export class EditPrinterComponent implements OnInit {
   }
 
   onSubmit() {
+    if (this.printerForm.status === 'INVALID' ) {
+      return;      
+    }
     let editedPrinter = Object.assign(this.printer, this.printerForm.value);
     if ( this.printer.id ) {
       this.updatePrinter(editedPrinter);
@@ -80,7 +83,7 @@ export class EditPrinterComponent implements OnInit {
   getPrinter(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     if ( id ) {
-      this.printerService.getPrinter(id)
+      this.printerService.getPrinterById(id)
         .subscribe(printer => {
           this.printer = printer;
           this.updateform();
