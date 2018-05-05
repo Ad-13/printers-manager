@@ -1,6 +1,6 @@
 ## Note
 
-Nevertheless prod ver was builded you have to run development mode to see ajax requests working well.
+Nevertheless prod ver was builded (in 'dist' folder) you have to run development mode to see ajax requests working well.
 
 ## To start development mode
 
