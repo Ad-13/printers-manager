@@ -3,12 +3,21 @@
   <mat-table #printersTable [dataSource]="printers" class="printers-table mat-elevation-z8">
 
     <ng-container matColumnDef="id">
-      <mat-header-cell *matHeaderCellDef (click)="sortByProp($event, 'id')">No. </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef
+        [ngClass]="sortedColumns.id"
+        class="sorted-col">
+          <span class="txt" (click)="sortByProp($event, 'id')">No.<i class="sort-arr material-icons">arrow_downward</i></span>
+        </mat-header-cell>
       <mat-cell *matCellDef="let printer"> {{printer.id}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef (click)="sortByProp($event, 'name')">Name </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef
+        [ngClass]="sortedColumns.name" 
+        class="sorted-col"
+        >
+          <span class="txt" (click)="sortByProp($event, 'name')">Name<i class="sort-arr material-icons">arrow_downward</i></span>
+      </mat-header-cell>
       <mat-cell *matCellDef="let printer"> {{printer.name}} </mat-cell>
     </ng-container>
 
@@ -52,8 +61,7 @@
     <ng-container matColumnDef="actions">
       <mat-header-cell *matHeaderCellDef>Actions </mat-header-cell>
       <mat-cell *matCellDef="let printer">
-        <a href="{{printer.reportLink}}"
-           routerLink="/edit-printer/{{printer.id}}" 
+        <a routerLink="/edit-printer/{{printer.id}}" 
            class="action-btn">
             <i class="material-icons">mode_edit</i>
         </a>

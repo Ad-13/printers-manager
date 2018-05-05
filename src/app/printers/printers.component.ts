@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { PrinterService } from '../services/printer.service';
 
 import { Printer } from '../interfaces/printer';
+import { SortedColumns } from '../interfaces/sortedColumns';
 
 import {
 	simpleCompare
@@ -29,6 +30,7 @@ export class PrintersComponent implements OnInit {
     'actions'
   ];
   printers: Printer[];
+  sortedColumns = new SortedColumns();
 
   constructor(private printerService: PrinterService) { }
 
@@ -40,16 +42,20 @@ export class PrintersComponent implements OnInit {
     this.getPrinters();
   }
 
+  updateSortedColumns(propName, value) {
+    let newSortedColumns = new SortedColumns();
+    newSortedColumns[propName] = value;
+    this.sortedColumns = newSortedColumns;
+  }
+
   sortByProp(event, propName: string) {
-    let elem = event.target,
+    let elem = event.target.parentElement,
         elemClasses = elem.classList;
     if ( !elemClasses.contains('sorted') ) {
-      elemClasses.add('sorted');
-      elemClasses.remove('reversed');
+      this.updateSortedColumns(propName, 'sorted');
       this.printers.sort(simpleCompare.bind(null, propName));
     } else {
-      elemClasses.add('reversed');
-      elemClasses.remove('sorted');
+      this.updateSortedColumns(propName, 'sorted-reversed');
       this.printers.reverse();
     }
     this.printersTable.renderRows();

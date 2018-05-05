@@ -54,3 +54,32 @@
     color: #f00;
   }
 }
+
+.sorted-col {
+  .txt {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+  }
+  &.sorted {
+    .sort-arr {
+      opacity: 1;
+    }
+  }
+  &.sorted-reversed {
+    .sort-arr {
+      opacity: 1;
+      transform: translate(0, -50%) rotate(180deg);
+    }
+  }
+
+  .sort-arr {
+    position: absolute;
+    font-size: 10px;
+    top: 50%;
+    left: 120%;
+    opacity: 0;
+    transition: all .2s ease-in-out;
+    transform: translate(0, -50%);
+  }
+}
