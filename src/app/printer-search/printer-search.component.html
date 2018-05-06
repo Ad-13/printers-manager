@@ -4,8 +4,7 @@
       <input matInput 
           placeholder="Search Printer"
           class="input"
-          #printerName
-          (input)="getPrinters(printerName.value)">
+          [formControl]="firstNameControl">
     </mat-form-field>
   </form>
 </div>
