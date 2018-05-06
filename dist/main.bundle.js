@@ -541,7 +541,7 @@ var MaterialModule = /** @class */ (function () {
 /***/ "./src/app/printer-search/printer-search.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"search-component\">\n  <form class=\"printer-search\">\n    <mat-form-field class=\"printer-search-inputs\">\n      <input matInput \n          placeholder=\"Search Printer\"\n          class=\"input\"\n          #printerName\n          (input)=\"getPrinters(printerName.value)\">\n    </mat-form-field>\n  </form>\n</div>"
+module.exports = "<div id=\"search-component\">\n  <form class=\"printer-search\">\n    <mat-form-field class=\"printer-search-inputs\">\n      <input matInput \n          placeholder=\"Search Printer\"\n          class=\"input\"\n          [formControl]=\"firstNameControl\">\n    </mat-form-field>\n  </form>\n</div>"
 
 /***/ }),
 
@@ -558,7 +558,10 @@ module.exports = ""
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PrinterSearchComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_printer_service__ = __webpack_require__("./src/app/services/printer.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/debounceTime.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/distinctUntilChanged.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_printer_service__ = __webpack_require__("./src/app/services/printer.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -570,14 +573,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
+
 var PrinterSearchComponent = /** @class */ (function () {
     function PrinterSearchComponent(printerService) {
         this.printerService = printerService;
+        this.firstNameControl = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]();
     }
     PrinterSearchComponent.prototype.ngOnInit = function () {
-    };
-    PrinterSearchComponent.prototype.getPrinters = function (printerName) {
-        this.printerService.emitNewPrinterObserver(printerName);
+        var _this = this;
+        this.firstNameControl.valueChanges
+            .debounceTime(1000)
+            .distinctUntilChanged()
+            .subscribe(function (printerName) { return _this.printerService.emitNewPrinterObserver(printerName); });
     };
     PrinterSearchComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -585,7 +594,7 @@ var PrinterSearchComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/printer-search/printer-search.component.html"),
             styles: [__webpack_require__("./src/app/printer-search/printer-search.component.scss")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_printer_service__["a" /* PrinterService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__services_printer_service__["a" /* PrinterService */]])
     ], PrinterSearchComponent);
     return PrinterSearchComponent;
 }());
