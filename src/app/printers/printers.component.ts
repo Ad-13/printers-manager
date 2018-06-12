@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef  } from '@angular/core';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 import { PrinterService } from '../services/printer.service';
 

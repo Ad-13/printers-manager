@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import { catchError, map, tap } from 'rxjs/operators';
-import { of } from 'rxjs/observable/of';
-import { Subject } from 'rxjs/Subject';
+import { Observable ,  of ,  Subject } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 import { Printer } from '../interfaces/printer';
 
@@ -11,9 +9,9 @@ import { MOCK_URL } from '../constants/constants';
 import { HTTP_OPTIONS } from '../constants/constants';
 
 import {
-	handleError
+  handleError
 } from '../utils/utils';
- 
+
 @Injectable()
 export class PrinterService {
   newPrinterObserver = new Subject<string>();

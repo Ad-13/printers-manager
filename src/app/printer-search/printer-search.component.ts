@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/distinctUntilChanged';
+import { Subscription } from 'rxjs';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 import { PrinterService } from '../services/printer.service';
 
@@ -10,16 +10,22 @@ import { PrinterService } from '../services/printer.service';
   templateUrl: './printer-search.component.html',
   styleUrls: ['./printer-search.component.scss']
 })
-export class PrinterSearchComponent implements OnInit {
+export class PrinterSearchComponent implements OnDestroy, OnInit {
   firstNameControl = new FormControl();
+  private subscription: Subscription;
 
   constructor(private printerService: PrinterService) { }
 
   ngOnInit() {
-    this.firstNameControl.valueChanges
-      .debounceTime(1000)
-      .distinctUntilChanged()
-      .subscribe(printerName => this.printerService.emitNewPrinterObserver(printerName))
+    this.subscription = this.firstNameControl.valueChanges.pipe(
+      debounceTime(1000),
+      distinctUntilChanged()
+    )
+    .subscribe(printerName => this.printerService.emitNewPrinterObserver(printerName));
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }
