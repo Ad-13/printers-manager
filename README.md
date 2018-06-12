@@ -5,5 +5,5 @@ Nevertheless prod ver was builded (in 'dist' folder) you have to run development
 ## To start development mode
 
 - Run `npm i` to install dependencies;
-- Run `npm start` at second window to run the app;
+- Run `npm start` to run the app;
 - Go to `http://localhost:4200/` to see the app
